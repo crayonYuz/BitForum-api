@@ -1,6 +1,6 @@
 package com.bit.bitforum.community.controller
 
-import com.bit.bitforum.community.dto.PostDto
+import com.bit.bitforum.community.dto.community.PostDto
 import com.bit.bitforum.community.service.PostService
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*

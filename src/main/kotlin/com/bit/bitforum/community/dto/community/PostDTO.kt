@@ -1,6 +1,5 @@
-package com.bit.bitforum.community.dto
+package com.bit.bitforum.community.dto.community
 
-import com.bit.bitforum.community.entity.Category
 import com.bit.bitforum.community.entity.Post
 import java.time.LocalDateTime
 
@@ -20,7 +19,8 @@ data class PostDto(
             content = post.content,
             category = post.category.value,
             createdAt = post.createdAt,
-            updatedAt = post.updatedAt
+            updatedAt = post.updatedAt,
+            author = post.author
         )
     }
 }

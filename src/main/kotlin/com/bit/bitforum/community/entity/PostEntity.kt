@@ -1,8 +1,6 @@
 package com.bit.bitforum.community.entity
 
-import com.bit.bitforum.community.dto.BaseEntity
 import jakarta.persistence.*
-import java.time.LocalDateTime
 
 @Entity
 @Table(name = "posts")
@@ -21,6 +19,9 @@ data class Post(
     @Enumerated(EnumType.STRING)
     @Column(name = "category", nullable = false)
     var category: Category,
+
+    @Column(name = "author")
+    var author: String? = null
 ) : BaseEntity() {
     fun update(title: String, content: String, category: Category) {
         this.title = title
@@ -32,7 +33,9 @@ data class Post(
 enum class Category(val value: String) {
     free("free"),
     coin_info("coin-info"),
-    beginner_guide("beginner-guide");
+    exchange_info("exchange-info"),
+    beginner_guide("beginner-guide"),
+    notice("notice");
 
     override fun toString(): String = value
 

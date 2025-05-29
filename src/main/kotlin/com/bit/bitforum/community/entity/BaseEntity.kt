@@ -1,4 +1,4 @@
-package com.bit.bitforum.community.dto
+package com.bit.bitforum.community.entity
 
 import jakarta.persistence.Column
 import jakarta.persistence.MappedSuperclass

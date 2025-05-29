@@ -1,6 +1,6 @@
 package com.bit.bitforum.community.service
 
-import com.bit.bitforum.community.dto.PostDto
+import com.bit.bitforum.community.dto.community.PostDto
 import com.bit.bitforum.community.entity.Category
 import com.bit.bitforum.community.entity.Post
 import com.bit.bitforum.community.repository.PostRepository
@@ -16,7 +16,8 @@ class PostService(
         val post = Post(
             title = dto.title,
             content = dto.content,
-            category = Category.fromValue(dto.category)
+            category = Category.fromValue(dto.category),
+            author = dto.author
         )
         return PostDto.from(postRepository.save(post))
     }
