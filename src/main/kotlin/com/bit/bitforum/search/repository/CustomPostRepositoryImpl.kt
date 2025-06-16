@@ -12,8 +12,8 @@ class CustomPostRepositoryImpl : CustomPostRepository {
     @PersistenceContext
     private lateinit var em: EntityManager
 
-    override fun searchByKeywordAndCategories(q: String, categories: List<Category>): List<Post> {
-        if (q.isBlank()) return emptyList()
+    override fun searchByKeywordAndCategories(keyword: String, categories: List<Category>): List<Post> {
+        if (keyword.isBlank()) return emptyList()
 
         val query = StringBuilder("SELECT p FROM Post p WHERE (p.title LIKE :q OR p.content LIKE :q)")
         if (categories.isNotEmpty()) {
@@ -21,7 +21,7 @@ class CustomPostRepositoryImpl : CustomPostRepository {
         }
 
         val jpql = em.createQuery(query.toString(), Post::class.java)
-        jpql.setParameter("q", "%$q%")
+        jpql.setParameter("q", "%$keyword%")
         if (categories.isNotEmpty()) {
             jpql.setParameter("categories", categories)
         }
